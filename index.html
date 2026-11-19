@@ -1,0 +1,1819 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究所入口导航 - 科研视频门户|专业内容生态</title>
+<meta name="description" content="研究所入口导航是面向科研机构与实验团队的官方视频门户，汇集研究所影像、科研纪实与原创内容生态，提供高清专业的内容导航与创作者社区。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e2a4a'/%3E%3Ccircle cx='32' cy='30' r='11' fill='none' stroke='%2338d6c8' stroke-width='4'/%3E%3Cpath d='M32 41v13M24 54h16' stroke='%2338d6c8' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --lab-navy:#0e2a4a;
+  --lab-navy-deep:#081c33;
+  --lab-teal:#1ec8b4;
+  --lab-teal-soft:#d8f5f0;
+  --lab-ice:#eef4f8;
+  --lab-line:#d3e0e8;
+  --lab-ink:#1b2b3a;
+  --lab-muted:#5d7285;
+  --lab-card:#ffffff;
+  --lab-amber:#f2a63b;
+  --lab-shadow:0 10px 30px rgba(14,42,74,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:118px}
+body{
+  font-family:"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  color:var(--lab-ink);
+  background:var(--lab-ice);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+
+/* ============ sticky wrapper: notice + header ============ */
+.labnav-sticky-stack{position:sticky;top:0;z-index:120}
+
+.labnav-notice-bar{
+  background:linear-gradient(90deg,var(--lab-navy-deep),var(--lab-navy));
+  color:#dff3f0;
+  font-size:13px;
+  padding:8px 0;
+  border-bottom:1px solid rgba(30,200,180,.35);
+}
+.labnav-notice-inner{
+  max-width:1200px;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.labnav-notice-tag{
+  background:var(--lab-teal);color:#04211d;font-weight:700;
+  font-size:11px;letter-spacing:.08em;padding:2px 9px;border-radius:4px;
+  flex:none;
+}
+.labnav-notice-text{flex:1;min-width:200px}
+.labnav-notice-text b{color:#fff}
+.labnav-notice-more{
+  color:var(--lab-teal);font-size:12px;white-space:nowrap;
+  border-bottom:1px dashed rgba(30,200,180,.6);
+}
+
+/* ============ header ============ */
+.labnav-header{
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--lab-line);
+  box-shadow:0 2px 14px rgba(14,42,74,.05);
+}
+.labnav-header-inner{
+  max-width:1200px;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;gap:26px;height:72px;
+}
+.labnav-brand{display:flex;align-items:center;gap:11px;flex:none}
+.labnav-brand-mark{
+  width:40px;height:40px;border-radius:11px;flex:none;
+  background:radial-gradient(circle at 30% 25%,#2a5a86,var(--lab-navy-deep));
+  display:grid;place-items:center;
+}
+.labnav-brand-name{font-size:18px;font-weight:800;letter-spacing:.02em;color:var(--lab-navy)}
+.labnav-brand-sub{font-size:11px;color:var(--lab-muted);letter-spacing:.22em;text-transform:uppercase;line-height:1}
+.labnav-nav{display:flex;align-items:center;gap:4px;flex:1;min-width:0}
+.labnav-nav a{
+  font-size:14.5px;padding:8px 13px;border-radius:8px;color:#3a4e60;
+  white-space:nowrap;transition:.2s;
+}
+.labnav-nav a:hover{background:var(--lab-teal-soft);color:var(--lab-navy);font-weight:600}
+.labnav-tools{display:flex;align-items:center;gap:10px;flex:none}
+.labnav-search{
+  display:flex;align-items:center;gap:7px;
+  background:var(--lab-ice);border:1px solid var(--lab-line);
+  border-radius:22px;padding:6px 6px 6px 14px;width:236px;transition:.25s;
+}
+.labnav-search:focus-within{border-color:var(--lab-teal);background:#fff;box-shadow:0 0 0 3px rgba(30,200,180,.16)}
+.labnav-search input{
+  border:none;outline:none;background:transparent;font-size:13.5px;width:100%;color:var(--lab-ink);
+}
+.labnav-search button{
+  background:var(--lab-navy);color:#fff;border-radius:16px;
+  font-size:12.5px;padding:5px 13px;flex:none;transition:.2s;
+}
+.labnav-search button:hover{background:var(--lab-teal);color:#04211d}
+.labnav-cta{
+  background:var(--lab-teal);color:#04211d;font-weight:700;font-size:13.5px;
+  padding:9px 18px;border-radius:9px;white-space:nowrap;transition:.2s;
+  box-shadow:0 4px 14px rgba(30,200,180,.32);
+}
+.labnav-cta:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(30,200,180,.4)}
+.labnav-burger{
+  display:none;width:42px;height:42px;border-radius:9px;
+  background:var(--lab-ice);border:1px solid var(--lab-line);
+  flex-direction:column;justify-content:center;align-items:center;gap:5px;
+}
+.labnav-burger span{display:block;width:19px;height:2px;background:var(--lab-navy);border-radius:2px;transition:.25s}
+.labnav-burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.labnav-burger.is-open span:nth-child(2){opacity:0}
+.labnav-burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.labnav-mobile-panel{
+  display:none;background:#fff;border-bottom:1px solid var(--lab-line);
+  padding:12px 20px 20px;
+}
+.labnav-mobile-panel.is-open{display:block}
+.labnav-mobile-panel a{
+  display:block;padding:11px 12px;border-radius:8px;font-size:15px;color:#33485b;
+}
+.labnav-mobile-panel a:hover{background:var(--lab-teal-soft)}
+.labnav-mobile-search{display:flex;gap:8px;margin-bottom:10px}
+.labnav-mobile-search input{
+  flex:1;border:1px solid var(--lab-line);border-radius:8px;padding:9px 12px;font-size:14px;outline:none;
+}
+.labnav-mobile-search input:focus{border-color:var(--lab-teal)}
+
+/* ============ shared layout ============ */
+.labnav-wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.labnav-section{padding:64px 0}
+.labnav-section--tight{padding:46px 0}
+.labnav-section-head{margin-bottom:34px;max-width:760px}
+.labnav-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--lab-teal);margin-bottom:10px;
+}
+.labnav-eyebrow::before{content:"";width:22px;height:2px;background:var(--lab-teal);border-radius:2px}
+.labnav-h2{
+  font-size:clamp(24px,3vw,33px);font-weight:800;color:var(--lab-navy);
+  line-height:1.3;letter-spacing:-.01em;
+}
+.labnav-h2 em{font-style:normal;color:var(--lab-teal);}
+.labnav-lead{color:var(--lab-muted);font-size:15px;margin-top:12px}
+.labnav-h3{font-size:18px;font-weight:700;color:var(--lab-navy);line-height:1.45}
+
+/* ============ hero ============ */
+.labnav-hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#0b2138 0%,#123255 46%,#0e3b52 100%);
+  color:#e9f4f6;
+}
+.labnav-hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 82% 18%,rgba(30,200,180,.30),transparent 46%),
+    radial-gradient(circle at 12% 82%,rgba(84,130,190,.28),transparent 52%);
+  pointer-events:none;
+}
+.labnav-hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(circle at 50% 40%,#000 20%,transparent 78%);
+  pointer-events:none;
+}
+.labnav-hero-inner{
+  position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:60px 20px 68px;
+  display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center;
+}
+.labnav-hero-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(30,200,180,.15);border:1px solid rgba(30,200,180,.45);
+  color:#8ef0e3;font-size:12.5px;font-weight:600;letter-spacing:.06em;
+  padding:6px 14px;border-radius:20px;margin-bottom:20px;
+}
+.labnav-hero-badge i{width:6px;height:6px;border-radius:50%;background:var(--lab-teal);display:block;box-shadow:0 0 0 3px rgba(30,200,180,.25);animation:labnavPulse 2s infinite}
+@keyframes labnavPulse{0%,100%{opacity:1}50%{opacity:.35}}
+.labnav-h1{
+  font-size:clamp(34px,5.2vw,58px);line-height:1.1;font-weight:800;
+  letter-spacing:-.02em;color:#fff;margin-bottom:18px;
+}
+.labnav-h1 span{color:var(--lab-teal)}
+.labnav-hero-tagline{
+  font-size:clamp(15px,1.7vw,18.5px);color:#c3dbe4;font-weight:500;
+  margin-bottom:16px;letter-spacing:.01em;
+}
+.labnav-hero-desc{
+  color:#a9c4d1;font-size:14.5px;max-width:560px;margin-bottom:26px;
+}
+.labnav-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.labnav-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:10px;font-size:14.5px;font-weight:700;
+  transition:.22s;border:1px solid transparent;
+}
+.labnav-btn--primary{background:var(--lab-teal);color:#04211d;box-shadow:0 8px 24px rgba(30,200,180,.35)}
+.labnav-btn--primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(30,200,180,.48)}
+.labnav-btn--ghost{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.28);color:#e9f4f6}
+.labnav-btn--ghost:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.5)}
+.labnav-hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  border-top:1px solid rgba(255,255,255,.14);padding-top:24px;max-width:520px;
+}
+.labnav-stat-num{font-size:clamp(21px,2.6vw,28px);font-weight:800;color:#fff;line-height:1.1}
+.labnav-stat-num small{font-size:13px;color:var(--lab-teal);font-weight:700;margin-left:2px}
+.labnav-stat-label{font-size:12.5px;color:#93b1c1;margin-top:5px;letter-spacing:.03em}
+
+/* hero visual */
+.labnav-hero-visual{position:relative}
+.labnav-hero-frame{
+  border-radius:18px;overflow:hidden;position:relative;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 30px 60px rgba(0,0,0,.42);
+  background:#08243a;
+}
+.labnav-hero-frame svg{width:100%;height:auto;display:block}
+.labnav-hero-frame-tag{
+  position:absolute;left:14px;top:14px;
+  background:rgba(4,33,29,.78);color:#8ef0e3;font-size:11.5px;font-weight:700;
+  padding:4px 11px;border-radius:5px;letter-spacing:.08em;backdrop-filter:blur(4px);
+}
+.labnav-hero-frame-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(30,200,180,.92);display:grid;place-items:center;
+  box-shadow:0 0 0 10px rgba(30,200,180,.18);transition:.25s;
+}
+.labnav-hero-frame:hover .labnav-hero-frame-play{transform:translate(-50%,-50%) scale(1.08);box-shadow:0 0 0 14px rgba(30,200,180,.22)}
+.labnav-hero-frame-play svg{width:24px;height:24px}
+.labnav-hero-mini{
+  position:absolute;right:-14px;bottom:-22px;width:200px;
+  background:#fff;border-radius:13px;padding:12px 14px;
+  box-shadow:0 18px 36px rgba(0,0,0,.28);border:1px solid var(--lab-line);
+}
+.labnav-hero-mini-title{font-size:11.5px;color:var(--lab-muted);letter-spacing:.1em;font-weight:700}
+.labnav-hero-mini-row{display:flex;align-items:center;gap:8px;margin-top:9px}
+.labnav-hero-mini-dot{width:8px;height:8px;border-radius:50%;background:var(--lab-teal);flex:none;box-shadow:0 0 0 3px rgba(30,200,180,.2)}
+.labnav-hero-mini-text{font-size:13px;font-weight:700;color:var(--lab-navy)}
+
+/* ============ intro long text ============ */
+.labnav-intro{background:#fff;border-bottom:1px solid var(--lab-line)}
+.labnav-intro-grid{display:grid;grid-template-columns:200px 1fr;gap:48px}
+.labnav-intro-aside{
+  border-left:3px solid var(--lab-teal);padding-left:18px;
+}
+.labnav-intro-aside strong{display:block;font-size:15px;color:var(--lab-navy);margin-bottom:6px}
+.labnav-intro-aside small{color:var(--lab-muted);font-size:12.5px;line-height:1.8;display:block}
+.labnav-prose p{margin-bottom:17px;font-size:15px;color:#33475a;text-align:justify}
+.labnav-prose p:last-child{margin-bottom:0}
+.labnav-prose strong{color:var(--lab-navy);font-weight:700}
+.labnav-prose h3{font-size:17.5px;color:var(--lab-navy);margin:26px 0 10px;padding-left:12px;border-left:3px solid var(--lab-teal);line-height:1.4}
+.labnav-prose h3:first-child{margin-top:0}
+
+/* ============ focus videos ============ */
+.labnav-focus-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:auto auto;gap:22px}
+.labnav-vcard{
+  background:var(--lab-card);border-radius:15px;overflow:hidden;
+  border:1px solid var(--lab-line);transition:.28s;display:flex;flex-direction:column;
+  position:relative;
+}
+.labnav-vcard:hover{transform:translateY(-5px);box-shadow:var(--lab-shadow);border-color:rgba(30,200,180,.5)}
+.labnav-vcard--hero{grid-row:1 / span 2}
+.labnav-vcover{position:relative;overflow:hidden;background:#0b2c46}
+.labnav-vcover svg{width:100%;height:100%;display:block;object-fit:cover}
+.labnav-vcard--hero .labnav-vcover{aspect-ratio:16/10}
+.labnav-vcard .labnav-vcover{aspect-ratio:16/9}
+.labnav-vcover-tag{
+  position:absolute;left:11px;top:11px;
+  background:rgba(4,33,29,.8);color:#8ef0e3;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:4px;letter-spacing:.06em;backdrop-filter:blur(3px);
+}
+.labnav-vcover-dur{
+  position:absolute;right:11px;bottom:11px;
+  background:rgba(4,18,32,.8);color:#e5f3f6;font-size:11px;font-weight:600;
+  padding:2px 7px;border-radius:4px;
+}
+.labnav-vcover-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.9);
+  width:52px;height:52px;border-radius:50%;background:rgba(30,200,180,.9);
+  display:grid;place-items:center;opacity:0;transition:.28s;
+  box-shadow:0 0 0 8px rgba(30,200,180,.16);
+}
+.labnav-vcard--hero .labnav-vcover-play{width:66px;height:66px}
+.labnav-vcard:hover .labnav-vcover-play{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.labnav-vcover-play svg{width:20px;height:20px}
+.labnav-vbody{padding:15px 17px 16px;display:flex;flex-direction:column;flex:1}
+.labnav-vcard--hero .labnav-vbody{padding:20px 22px}
+.labnav-vtitle{font-size:16px;font-weight:700;color:var(--lab-navy);line-height:1.45;margin-bottom:7px}
+.labnav-vcard--hero .labnav-vtitle{font-size:19.5px}
+.labnav-vsum{font-size:13px;color:var(--lab-muted);line-height:1.72;margin-bottom:12px;flex:1}
+.labnav-vcard:not(.labnav-vcard--hero) .labnav-vsum{
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.labnav-vmeta{
+  display:flex;align-items:center;gap:9px;flex-wrap:wrap;
+  font-size:12px;color:var(--lab-muted);border-top:1px solid var(--lab-ice);padding-top:11px;
+}
+.labnav-vavatar{
+  width:24px;height:24px;border-radius:50%;flex:none;
+  display:grid;place-items:center;font-size:10.5px;font-weight:800;color:#fff;
+}
+.labnav-vmeta-author{font-weight:600;color:#3c5165}
+.labnav-vmeta-dot{width:3px;height:3px;border-radius:50%;background:#b6c7d3}
+.labnav-vactions{margin-left:auto;display:flex;gap:5px}
+.labnav-icon-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:12px;color:var(--lab-muted);padding:4px 8px;border-radius:6px;transition:.2s;
+}
+.labnav-icon-btn:hover{background:var(--lab-teal-soft);color:var(--lab-navy)}
+.labnav-icon-btn.is-liked{color:#e0533f}
+.labnav-icon-btn.is-saved{color:var(--lab-amber)}
+.labnav-icon-btn svg{width:14px;height:14px}
+.labnav-tag{
+  display:inline-block;font-size:11.5px;color:#0f7a6e;background:var(--lab-teal-soft);
+  padding:2px 9px;border-radius:20px;font-weight:600;margin-right:6px;margin-bottom:4px;
+}
+
+/* ============ topics ============ */
+.labnav-topics{background:#fff;border-top:1px solid var(--lab-line);border-bottom:1px solid var(--lab-line)}
+.labnav-topic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.labnav-topic-card{
+  border-radius:14px;overflow:hidden;position:relative;min-height:250px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:20px;color:#fff;transition:.28s;border:1px solid transparent;
+}
+.labnav-topic-card:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(14,42,74,.24)}
+.labnav-topic-card:nth-child(1){background:linear-gradient(158deg,#0d2c47,#17567a 60%,#1a8a86)}
+.labnav-topic-card:nth-child(2){background:linear-gradient(158deg,#123d52,#1b6f74 55%,#2aa79a)}
+.labnav-topic-card:nth-child(3){background:linear-gradient(158deg,#1c2f46,#264f75 55%,#3a7fa8)}
+.labnav-topic-card:nth-child(4){background:linear-gradient(158deg,#0f3a3a,#1a5f5b 55%,#2f9d8f)}
+.labnav-topic-card::after{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(circle at 82% 10%,rgba(255,255,255,.16),transparent 46%);
+  pointer-events:none;
+}
+.labnav-topic-idx{font-size:11.5px;letter-spacing:.18em;font-weight:700;color:rgba(255,255,255,.6);margin-bottom:8px}
+.labnav-topic-title{font-size:17.5px;font-weight:800;line-height:1.35;margin-bottom:7px;position:relative;z-index:2}
+.labnav-topic-desc{font-size:12.5px;color:rgba(255,255,255,.8);line-height:1.65;position:relative;z-index:2;margin-bottom:11px}
+.labnav-topic-status{
+  display:inline-flex;align-items:center;gap:6px;align-self:flex-start;
+  font-size:11.5px;font-weight:700;background:rgba(255,255,255,.14);
+  padding:4px 10px;border-radius:20px;position:relative;z-index:2;
+  border:1px solid rgba(255,255,255,.22);
+}
+.labnav-topic-status i{width:6px;height:6px;border-radius:50%;background:#6ff0d8;display:block}
+
+/* ============ creators ============ */
+.labnav-creator-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.labnav-creator-card{
+  background:#fff;border:1px solid var(--lab-line);border-radius:15px;
+  padding:22px 20px;display:flex;gap:15px;transition:.26s;
+}
+.labnav-creator-card:hover{transform:translateY(-4px);box-shadow:var(--lab-shadow);border-color:rgba(30,200,180,.5)}
+.labnav-creator-avatar{
+  width:56px;height:56px;border-radius:14px;flex:none;
+  display:grid;place-items:center;font-size:20px;font-weight:800;color:#fff;
+  position:relative;overflow:hidden;
+}
+.labnav-creator-info{min-width:0;flex:1}
+.labnav-creator-name{font-size:15.5px;font-weight:800;color:var(--lab-navy);display:flex;align-items:center;gap:7px;margin-bottom:3px}
+.labnav-creator-verify{
+  font-size:10px;font-weight:700;color:#0b6b60;background:var(--lab-teal-soft);
+  padding:1px 7px;border-radius:20px;
+}
+.labnav-creator-field{font-size:12.5px;color:var(--lab-teal);font-weight:700;margin-bottom:8px}
+.labnav-creator-bio{font-size:12.5px;color:var(--lab-muted);line-height:1.68;margin-bottom:10px}
+.labnav-creator-stats{display:flex;gap:14px;font-size:11.5px;color:#7b8fa0}
+.labnav-creator-stats b{color:var(--lab-navy);font-weight:800}
+.labnav-creator-btn{
+  align-self:flex-start;font-size:11.5px;font-weight:700;color:var(--lab-navy);
+  border:1px solid var(--lab-line);padding:4px 11px;border-radius:7px;transition:.2s;flex:none;
+  white-space:nowrap;
+}
+.labnav-creator-btn:hover{background:var(--lab-navy);color:#fff;border-color:var(--lab-navy)}
+
+/* ============ gallery ============ */
+.labnav-gallery{background:#fff;border-top:1px solid var(--lab-line);border-bottom:1px solid var(--lab-line)}
+.labnav-wall{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.labnav-wall-item{
+  position:relative;border-radius:12px;overflow:hidden;background:#0b2c46;
+  transition:.26s;display:block;
+}
+.labnav-wall-item:hover{transform:scale(1.025);box-shadow:0 14px 30px rgba(14,42,74,.24)}
+.labnav-wall-item svg{width:100%;height:100%;display:block;object-fit:cover}
+.labnav-wall-item--lg{grid-column:span 3;grid-row:span 2}
+.labnav-wall-item--md{grid-column:span 2}
+.labnav-wall-item--sm{grid-column:span 1}
+.labnav-wall-cap{
+  position:absolute;left:0;right:0;bottom:0;padding:20px 12px 10px;
+  background:linear-gradient(transparent,rgba(4,20,34,.9));
+  color:#e9f6f8;font-size:12px;font-weight:600;line-height:1.45;
+}
+.labnav-wall-item--lg .labnav-wall-cap{font-size:14px;padding:26px 16px 13px}
+.labnav-wall-cap small{display:block;font-size:10.5px;font-weight:500;color:rgba(233,246,248,.72);margin-top:2px}
+
+/* ============ reviews ============ */
+.labnav-review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.labnav-review-card{
+  background:#fff;border:1px solid var(--lab-line);border-radius:14px;
+  padding:20px;position:relative;transition:.24s;
+}
+.labnav-review-card:hover{border-color:rgba(30,200,180,.5);box-shadow:var(--lab-shadow)}
+.labnav-review-card::before{
+  content:"“";position:absolute;right:16px;top:4px;
+  font-size:58px;line-height:1;color:rgba(30,200,180,.14);font-family:Georgia,serif;
+}
+.labnav-review-stars{color:var(--lab-amber);font-size:12.5px;letter-spacing:2px;margin-bottom:9px}
+.labnav-review-text{font-size:13.5px;color:#3b5062;line-height:1.75;margin-bottom:14px;position:relative;z-index:2}
+.labnav-review-foot{display:flex;align-items:center;gap:9px;border-top:1px solid var(--lab-ice);padding-top:11px}
+.labnav-review-av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:11.5px;font-weight:800;color:#fff;flex:none}
+.labnav-review-name{font-size:12.5px;font-weight:700;color:var(--lab-navy);line-height:1.3}
+.labnav-review-role{font-size:11px;color:var(--lab-muted)}
+
+/* ============ updates ============ */
+.labnav-updates-list{display:flex;flex-direction:column;gap:0}
+.labnav-update-item{
+  display:grid;grid-template-columns:104px 1fr;gap:20px;
+  padding:19px 0;border-bottom:1px dashed var(--lab-line);align-items:start;
+}
+.labnav-update-item:first-child{padding-top:0}
+.labnav-update-item:last-child{border-bottom:none;padding-bottom:0}
+.labnav-update-date{font-size:12.5px;font-weight:700;color:var(--lab-teal);letter-spacing:.02em;white-space:nowrap}
+.labnav-update-date small{display:block;color:#a2b4c1;font-weight:500;font-size:11px;margin-top:2px}
+.labnav-update-title{font-size:15px;font-weight:700;color:var(--lab-navy);margin-bottom:4px}
+.labnav-update-desc{font-size:13px;color:var(--lab-muted);line-height:1.7}
+
+/* ============ faq ============ */
+.labnav-faq{max-width:900px;margin:0 auto}
+.labnav-faq details{
+  background:#fff;border:1px solid var(--lab-line);border-radius:12px;
+  margin-bottom:11px;overflow:hidden;transition:.2s;
+}
+.labnav-faq details[open]{border-color:rgba(30,200,180,.55);box-shadow:0 6px 20px rgba(14,42,74,.06)}
+.labnav-faq summary{
+  list-style:none;cursor:pointer;padding:16px 48px 16px 18px;
+  font-size:14.5px;font-weight:700;color:var(--lab-navy);position:relative;
+}
+.labnav-faq summary::-webkit-details-marker{display:none}
+.labnav-faq summary::after{
+  content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  font-size:20px;font-weight:400;color:var(--lab-teal);line-height:1;transition:.2s;
+}
+.labnav-faq details[open] summary::after{content:"−"}
+.labnav-faq-answer{padding:0 18px 17px;font-size:13.5px;color:#4a5f72;line-height:1.78;border-top:1px solid var(--lab-ice);padding-top:13px;margin:0 18px 0;padding-left:0;padding-right:0}
+
+/* ============ contact ============ */
+.labnav-contact{
+  background:linear-gradient(150deg,#0b2138,#123a55 55%,#0d4a4a);
+  color:#dff0f3;position:relative;overflow:hidden;
+}
+.labnav-contact::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 88% 12%,rgba(30,200,180,.28),transparent 50%);
+  pointer-events:none;
+}
+.labnav-contact-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.labnav-contact .labnav-h2{color:#fff}
+.labnav-contact .labnav-lead{color:#a6c4cf}
+.labnav-contact-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.labnav-contact-card{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);
+  border-radius:15px;padding:22px 24px;backdrop-filter:blur(6px);
+}
+.labnav-contact-row{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.14);font-size:13.5px}
+.labnav-contact-row:last-child{border-bottom:none;padding-bottom:0}
+.labnav-contact-row strong{color:#fff;display:block;font-size:13px;margin-bottom:2px}
+.labnav-contact-row span{color:#a6c4cf;font-size:12.5px}
+.labnav-contact-ico{
+  width:32px;height:32px;border-radius:9px;background:rgba(30,200,180,.18);
+  display:grid;place-items:center;flex:none;color:var(--lab-teal);
+}
+.labnav-contact-ico svg{width:15px;height:15px}
+
+/* ============ footer ============ */
+.labnav-footer{background:var(--lab-navy-deep);color:#93adbd;padding:48px 0 0;font-size:13px}
+.labnav-footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.11)}
+.labnav-footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:13px}
+.labnav-footer-brand .labnav-brand-mark{width:34px;height:34px;border-radius:9px}
+.labnav-footer-brand b{color:#fff;font-size:15.5px;font-weight:800}
+.labnav-footer-desc{font-size:12.5px;line-height:1.8;color:#7f9aac;max-width:290px}
+.labnav-footer h4{color:#fff;font-size:13.5px;font-weight:700;margin-bottom:13px;letter-spacing:.04em}
+.labnav-footer li{margin-bottom:9px;font-size:12.5px}
+.labnav-footer li a{color:#8fa9ba;transition:.2s}
+.labnav-footer li a:hover{color:var(--lab-teal)}
+.labnav-footer-bottom{
+  padding:20px 0;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between;
+  font-size:12px;color:#6c8698;
+}
+.labnav-footer-bottom span b{color:#93adbd;font-weight:600}
+
+/* ============ toast & modal ============ */
+.labnav-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,18px);
+  background:rgba(8,28,45,.95);color:#e9f6f8;font-size:13.5px;font-weight:600;
+  padding:12px 22px;border-radius:10px;box-shadow:0 14px 34px rgba(0,0,0,.35);
+  opacity:0;pointer-events:none;transition:.3s;z-index:400;border:1px solid rgba(30,200,180,.4);
+  max-width:88vw;text-align:center;
+}
+.labnav-toast.is-show{opacity:1;transform:translate(-50%,0)}
+
+.labnav-modal-mask{
+  position:fixed;inset:0;background:rgba(5,20,34,.62);backdrop-filter:blur(4px);
+  display:none;place-items:center;z-index:350;padding:20px;
+}
+.labnav-modal-mask.is-open{display:grid}
+.labnav-modal{
+  background:#fff;border-radius:16px;max-width:460px;width:100%;
+  padding:26px 26px 22px;box-shadow:0 30px 70px rgba(0,0,0,.4);
+  animation:labnavPop .25s ease;
+}
+@keyframes labnavPop{from{transform:translateY(14px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+.labnav-modal h3{font-size:19px;color:var(--lab-navy);margin-bottom:8px}
+.labnav-modal p{font-size:13.5px;color:var(--lab-muted);line-height:1.75;margin-bottom:18px}
+.labnav-modal-field{margin-bottom:14px}
+.labnav-modal-field label{display:block;font-size:12.5px;font-weight:700;color:var(--lab-navy);margin-bottom:6px}
+.labnav-modal-field input,.labnav-modal-field textarea{
+  width:100%;border:1px solid var(--lab-line);border-radius:9px;padding:10px 13px;
+  font-size:13.5px;font-family:inherit;outline:none;transition:.2s;color:var(--lab-ink);
+}
+.labnav-modal-field input:focus,.labnav-modal-field textarea:focus{border-color:var(--lab-teal);box-shadow:0 0 0 3px rgba(30,200,180,.14)}
+.labnav-modal-field textarea{resize:vertical;min-height:82px}
+.labnav-modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:6px}
+.labnav-modal-btn{padding:9px 20px;border-radius:9px;font-size:13.5px;font-weight:700;transition:.2s}
+.labnav-modal-btn--cancel{background:var(--lab-ice);color:#465c6e}
+.labnav-modal-btn--cancel:hover{background:#dde8ee}
+.labnav-modal-btn--ok{background:var(--lab-teal);color:#04211d}
+.labnav-modal-btn--ok:hover{background:#17b3a2}
+
+.labnav-top-btn{
+  position:fixed;right:22px;bottom:26px;width:46px;height:46px;border-radius:13px;
+  background:var(--lab-navy);color:#fff;display:grid;place-items:center;
+  box-shadow:0 10px 26px rgba(14,42,74,.32);z-index:150;
+  opacity:0;pointer-events:none;transform:translateY(12px);transition:.28s;
+}
+.labnav-top-btn.is-show{opacity:1;pointer-events:auto;transform:none}
+.labnav-top-btn:hover{background:var(--lab-teal);color:#04211d}
+.labnav-top-btn svg{width:17px;height:17px}
+
+/* search feedback */
+.labnav-search-feedback{
+  display:none;margin-top:10px;font-size:12.5px;color:#0b6b60;
+  background:var(--lab-teal-soft);padding:6px 13px;border-radius:20px;
+}
+.labnav-search-feedback.is-show{display:inline-block}
+
+/* ============ responsive ============ */
+@media (max-width:1080px){
+  .labnav-nav{display:none}
+  .labnav-search{display:none}
+  .labnav-burger{display:flex}
+  .labnav-hero-inner{grid-template-columns:1fr;gap:38px;padding-top:48px;padding-bottom:56px}
+  .labnav-hero-visual{max-width:560px}
+  .labnav-hero-mini{right:6px;bottom:-16px}
+  .labnav-intro-grid{grid-template-columns:1fr;gap:24px}
+  .labnav-topic-grid{grid-template-columns:repeat(2,1fr)}
+  .labnav-creator-grid{grid-template-columns:repeat(2,1fr)}
+  .labnav-review-grid{grid-template-columns:repeat(2,1fr)}
+  .labnav-contact-inner{grid-template-columns:1fr;gap:30px}
+  .labnav-footer-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .labnav-focus-grid{grid-template-columns:1fr 1fr}
+  .labnav-vcard--hero{grid-column:1 / -1;grid-row:auto}
+}
+@media (max-width:720px){
+  html{scroll-padding-top:104px}
+  .labnav-header-inner{height:62px;gap:14px}
+  .labnav-brand-name{font-size:16px}
+  .labnav-brand-sub{display:none}
+  .labnav-cta{display:none}
+  .labnav-section{padding:46px 0}
+  .labnav-section--tight{padding:34px 0}
+  .labnav-focus-grid{grid-template-columns:1fr}
+  .labnav-topic-grid{grid-template-columns:1fr}
+  .labnav-creator-grid{grid-template-columns:1fr}
+  .labnav-review-grid{grid-template-columns:1fr}
+  .labnav-wall{grid-template-columns:repeat(4,1fr)}
+  .labnav-wall-item--lg{grid-column:span 4;grid-row:span 1}
+  .labnav-wall-item--md{grid-column:span 2}
+  .labnav-wall-item--sm{grid-column:span 2}
+  .labnav-update-item{grid-template-columns:1fr;gap:5px}
+  .labnav-footer-top{grid-template-columns:1fr;gap:26px}
+  .labnav-hero-stats{grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .labnav-hero-mini{display:none}
+  .labnav-top-btn{right:14px;bottom:18px;width:42px;height:42px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ============ STICKY STACK: 公告条 + 页头 ============ -->
+<div class="labnav-sticky-stack">
+  <div class="labnav-notice-bar">
+    <div class="labnav-notice-inner">
+      <span class="labnav-notice-tag">最新发布</span>
+      <span class="labnav-notice-text"><b>《科研影像档案·第九辑》</b> 11月18日新增 12 条研究所纪实影像与 3 项联合实验直播回放入口已上线</span>
+      <a class="labnav-notice-more" href="#labnav-updates">查看更新日志 →</a>
+    </div>
+  </div>
+
+  <header class="labnav-header">
+    <div class="labnav-header-inner">
+      <a class="labnav-brand" href="#labnav-top" aria-label="研究所入口导航官方网站">
+        <span class="labnav-brand-mark">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1ec8b4" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="9" r="4.2"/>
+            <path d="M12 13.4V21M8.4 21h7.2"/>
+          </svg>
+        </span>
+        <span>
+          <span class="labnav-brand-name">研究所入口导航</span>
+          <span class="labnav-brand-sub">Lab Portal Video</span>
+        </span>
+      </a>
+
+      <nav class="labnav-nav" aria-label="主导航">
+        <a href="#labnav-top">首页</a>
+        <a href="#labnav-focus">影像焦点</a>
+        <a href="#labnav-topics">专题企划</a>
+        <a href="#labnav-creators">创作者</a>
+        <a href="#labnav-updates">官方动态</a>
+        <a href="#labnav-faq">帮助</a>
+        <a href="#labnav-contact">联系</a>
+      </nav>
+
+      <div class="labnav-tools">
+        <form class="labnav-search" id="labnavSearchForm" role="search">
+          <input type="search" id="labnavSearchInput" placeholder="搜索研究所、实验影像、创作者" aria-label="站内搜索">
+          <button type="submit">搜索</button>
+        </form>
+        <a class="labnav-cta" href="#labnav-contact">机构入驻</a>
+        <button class="labnav-burger" id="labnavBurger" aria-label="展开导航菜单" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="labnav-mobile-panel" id="labnavMobilePanel">
+      <div class="labnav-mobile-search">
+        <input type="search" id="labnavMobileSearch" placeholder="搜索研究所、实验影像" aria-label="移动端站内搜索">
+        <button class="labnav-modal-btn--ok labnav-modal-btn" data-labnav-mobile-search>搜索</button>
+      </div>
+      <a href="#labnav-top">首页</a>
+      <a href="#labnav-focus">影像焦点</a>
+      <a href="#labnav-topics">专题企划</a>
+      <a href="#labnav-creators">创作者</a>
+      <a href="#labnav-updates">官方动态</a>
+      <a href="#labnav-faq">帮助</a>
+      <a href="#labnav-contact">联系</a>
+    </div>
+  </header>
+</div>
+
+<main id="labnav-top">
+
+  <!-- ============ HERO ============ -->
+  <section class="labnav-hero" aria-labelledby="labnavHeroTitle">
+    <div class="labnav-hero-inner">
+      <div>
+        <span class="labnav-hero-badge"><i></i>科研机构官方影像门户 · 持续运营中</span>
+        <h1 class="labnav-h1" id="labnavHeroTitle">研究所<br><span>入口导航</span></h1>
+        <p class="labnav-hero-tagline">让每一间实验室的研究过程，被专业地记录与看见</p>
+        <p class="labnav-hero-desc">
+          汇聚全国重点研究所、高校实验室与联合科研团队的官方影像入口，提供高清科研纪实、实验过程记录、成果发布与人物访谈。以正版、专业的内容生态，服务科研机构、企业研发部门与每一位关注科学进展的用户。
+        </p>
+        <div class="labnav-hero-actions">
+          <a class="labnav-btn labnav-btn--primary" href="#labnav-focus">进入影像焦点</a>
+          <a class="labnav-btn labnav-btn--ghost" href="#labnav-contact">机构内容入驻</a>
+          <button class="labnav-btn labnav-btn--ghost" data-labnav-share>分享本页入口</button>
+        </div>
+        <div class="labnav-hero-stats">
+          <div>
+            <div class="labnav-stat-num" data-labnav-count="386">386<small>+</small></div>
+            <div class="labnav-stat-label">入驻研究所与实验室</div>
+          </div>
+          <div>
+            <div class="labnav-stat-num" data-labnav-count="12400">12,400<small>+</small></div>
+            <div class="labnav-stat-label">科研纪实影像条目</div>
+          </div>
+          <div>
+            <div class="labnav-stat-num" data-labnav-count="92">92<small>%</small></div>
+            <div class="labnav-stat-label">机构用户月度回访率</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="labnav-hero-visual">
+        <div class="labnav-hero-frame">
+          <span class="labnav-hero-frame-tag">官方发布 · 科研影像</span>
+          <svg viewBox="0 0 640 400" role="img" aria-label="研究所低温实验室走廊的科研纪实影像封面">
+            <defs>
+              <linearGradient id="labnavHeroSky" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#0a2237"/>
+                <stop offset=".55" stop-color="#123a57"/>
+                <stop offset="1" stop-color="#0f4e52"/>
+              </linearGradient>
+              <linearGradient id="labnavHeroFloor" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#15465f"/>
+                <stop offset="1" stop-color="#071a2b"/>
+              </linearGradient>
+              <linearGradient id="labnavHeroGlow" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#28e0c8" stop-opacity=".55"/>
+                <stop offset="1" stop-color="#28e0c8" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="400" fill="url(#labnavHeroSky)"/>
+            <rect y="250" width="640" height="150" fill="url(#labnavHeroFloor)"/>
+            <!-- perspective grid floor -->
+            <g stroke="#1ec8b4" stroke-opacity=".22" stroke-width="1">
+              <path d="M0 250 L640 250"/>
+              <path d="M60 400 L250 250"/>
+              <path d="M180 400 L310 250"/>
+              <path d="M320 400 L320 250"/>
+              <path d="M460 400 L330 250"/>
+              <path d="M580 400 L390 250"/>
+              <path d="M0 300 L640 300"/>
+              <path d="M0 350 L640 350"/>
+            </g>
+            <!-- corridor walls -->
+            <rect x="40" y="70" width="120" height="180" rx="4" fill="#0d2e47" stroke="#1b5773" stroke-width="2"/>
+            <rect x="480" y="70" width="120" height="180" rx="4" fill="#0d2e47" stroke="#1b5773" stroke-width="2"/>
+            <rect x="60" y="96" width="34" height="46" rx="3" fill="#144a63"/>
+            <rect x="106" y="96" width="34" height="46" rx="3" fill="#144a63"/>
+            <rect x="60" y="158" width="34" height="46" rx="3" fill="#144a63"/>
+            <rect x="106" y="158" width="34" height="46" rx="3" fill="#144a63"/>
+            <rect x="502" y="96" width="34" height="46" rx="3" fill="#144a63"/>
+            <rect x="548" y="96" width="34" height="46" rx="3" fill="#144a63"/>
+            <rect x="502" y="158" width="34" height="46" rx="3" fill="#144a63"/>
+            <rect x="548" y="158" width="34" height="46" rx="3" fill="#144a63"/>
+            <!-- central door -->
+            <rect x="266" y="108" width="108" height="142" rx="5" fill="#0b3a4c" stroke="#28e0c8" stroke-opacity=".55" stroke-width="2"/>
+            <rect x="280" y="122" width="80" height="58" rx="3" fill="url(#labnavHeroGlow)"/>
+            <circle cx="320" cy="203" r="5" fill="#28e0c8"/>
+            <!-- light shafts -->
+            <path d="M320 108 L232 250 L408 250 Z" fill="#28e0c8" opacity=".07"/>
+            <!-- hanging lamps -->
+            <g stroke="#28e0c8" stroke-opacity=".5" stroke-width="1.4">
+              <path d="M150 0 V44"/><path d="M320 0 V34"/><path d="M490 0 V44"/>
+            </g>
+            <ellipse cx="150" cy="48" rx="26" ry="7" fill="#28e0c8" opacity=".5"/>
+            <ellipse cx="320" cy="38" rx="30" ry="8" fill="#28e0c8" opacity=".62"/>
+            <ellipse cx="490" cy="48" rx="26" ry="7" fill="#28e0c8" opacity=".5"/>
+            <!-- silhouettes of researchers -->
+            <g fill="#06202f" opacity=".92">
+              <circle cx="226" cy="196" r="11"/>
+              <path d="M210 250 q16 -30 32 0 z"/>
+              <circle cx="416" cy="204" r="9"/>
+              <path d="M402 250 q14 -26 28 0 z"/>
+            </g>
+            <g stroke="#28e0c8" stroke-width="2" fill="none" opacity=".85">
+              <circle cx="320" cy="58" r="3"/>
+              <circle cx="300" cy="70" r="2"/>
+              <circle cx="342" cy="72" r="2"/>
+            </g>
+            <text x="36" y="368" fill="#7fd8cc" font-size="13" font-family="monospace" letter-spacing="2">LAB · CORRIDOR · 04:16</text>
+          </svg>
+          <span class="labnav-hero-frame-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="#04211d"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </div>
+        <div class="labnav-hero-mini">
+          <div class="labnav-hero-mini-title">今日新增影像</div>
+          <div class="labnav-hero-mini-row">
+            <span class="labnav-hero-mini-dot"></span>
+            <span class="labnav-hero-mini-text">低温实验舱公开记录 · 06 条</span>
+          </div>
+          <div class="labnav-hero-mini-row">
+            <span class="labnav-hero-mini-dot"></span>
+            <span class="labnav-hero-mini-text">材料研究所联合直播回放</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTRO LONG TEXT ============ -->
+  <section class="labnav-intro labnav-section" aria-labelledby="labnavIntroTitle">
+    <div class="labnav-wrap">
+      <div class="labnav-section-head">
+        <span class="labnav-eyebrow">定位与解析</span>
+        <h2 class="labnav-h2" id="labnavIntroTitle">研究所入口导航，<em>是什么</em></h2>
+        <p class="labnav-lead">一个属于科研机构与科学传播者的官方影像入口体系，也是公众理解研究过程的第一道可视化窗口。</p>
+      </div>
+      <div class="labnav-intro-grid">
+        <aside class="labnav-intro-aside">
+          <strong>阅读提示</strong>
+          <small>本节约 900 字，介绍平台定位、内容构成、收录标准、服务对象与长期运营方式，建议完整阅读。</small>
+        </aside>
+        <div class="labnav-prose">
+          <h3>一、从“一个入口”到“一套科研影像秩序”</h3>
+          <p>研究所入口导航并不是一个简单的链接集合。它由一套持续维护的收录标准、验证机制与内容组织方式构成：每一个进入导航的研究所、实验室或联合科研团队，都需要提供可核验的机构信息、研究方向的公开说明，以及由机构授权发布的影像素材。<strong>官网与官方渠道</strong>是这套体系的基础，所有影像条目的发布源头都可以追溯到对应的研究机构主体，避免出现来源模糊、内容失真的情况。</p>
+          <p>在具体的组织方式上，我们把影像分为研究过程记录、成果发布说明、实验方法拆解、人物访谈与跨机构联合企划五类。每一类都有固定的元数据结构：拍摄时间、所属研究单元、影像时长、涉及学科、发布机构与更新状态。这样做的好处是，用户检索“研究所入口导航”时，得到的不是一个笼统的关键词结果页，而是一份可以被逐层展开的、带上下文的研究影像档案。</p>
+          <h3>二、为什么科研过程值得被完整记录</h3>
+          <p>科研成果通常以论文、报告或发布会的形态出现，而真正决定成果质量的过程——样本制备、参数调试、失败与修正、团队讨论——往往不会被系统保存。研究所入口导航希望补上这一段。我们与研究院所、高校重点实验室以及企业研发中心合作，将研究过程中的关键环节以影像方式留存，形成可复用的机构记忆。这既是<strong>企业级内容资产</strong>的建设，也是面向公众的科学传播基础设施。</p>
+          <p>对公众而言，这类影像降低了理解门槛。一段关于材料疲劳测试的高清记录，比一段结论式描述更容易让人建立直观认知。对研究者而言，它是一份可以回溯的过程档案，能帮助团队在项目交接、复现实验与教学演示中减少沟通成本。对机构而言，它是品牌故事与影响力的长期积累，一次严谨的记录，往往比十次概括性的介绍更有说服力。</p>
+          <h3>三、收录标准与内容品质</h3>
+          <p>我们坚持较高的收录门槛。影像需为机构正式授权发布，画面应达到<strong>高清</strong>标准，关键信息如设备名称、实验阶段、数据来源需在画面或说明中清晰呈现；涉及未公开成果的内容，须标注可见范围与发布时间窗口。所有条目在入库前会经过两轮核对：第一轮核对机构资质与授权链路，第二轮核对影像描述与画面内容是否一致。这套流程让研究所入口导航在专业用户中形成了相对稳定的口碑。</p>
+          <p>我们也接受来自独立创作者与科学传播者的投稿，但同样需要标注素材来源与合作机构。对于科普类二次创作，我们要求明确区分“原始记录”与“解释性内容”，避免把解读当作事实呈现。这种区分看似繁琐，却是内容生态能够长期健康运转的前提。</p>
+          <h3>四、平台服务对象与使用方式</h3>
+          <p>研究所入口导航主要服务四类用户：需要对外发布研究进展的科研机构、希望建立研发透明度的企业技术部门、从事科学传播的创作者团队，以及希望理解前沿研究的普通用户。机构可以在官方发布通道提交影像与说明，创作者可以基于公开素材进行二次创作并在创作灵感模块获取脚本与标题建议，普通用户则可以通过分类导航、专题企划与搜索入口快速定位感兴趣的内容。</p>
+          <p>我们提供的不只是观看入口，还包括投稿指南、授权说明、引用规范与常见问题解答。我们相信，一个<strong>值得信赖</strong>的科研影像平台，必须同时把“看得见”和“说得清”做好：看得见是呈现能力，说得清是规则能力。两者结合，才构成一个真正专业的内容生态。</p>
+          <h3>五、长期运营与社会责任</h3>
+          <p>研究所入口导航由一支稳定的内容与运营团队持续维护，按周更新机构动态，按月整理专题企划，按季度发布内容生态观察。我们与多家科研机构、科普组织与产业伙伴保持合作，也定期开放比赛、挑战与投票类共创活动，让更多研究者与创作者参与进来。我们清楚，科学传播不是一次性的流量事件，而是需要耐心、专业与<strong>匠心</strong>的长期工作。</p>
+          <p>在未来，我们会继续扩充地域与学科覆盖面，优化检索与入口结构，并推动更多机构以规范方式开放研究影像。我们希望研究所入口导航成为这样一个地方：研究者愿意在这里留下过程，公众愿意在这里停留理解，而所有内容都能被追溯、被引用、被尊重。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOCUS VIDEOS ============ -->
+  <section class="labnav-section" id="labnav-focus" aria-labelledby="labnavFocusTitle">
+    <div class="labnav-wrap">
+      <div class="labnav-section-head">
+        <span class="labnav-eyebrow">影像焦点</span>
+        <h2 class="labnav-h2" id="labnavFocusTitle">本周<em>重点推荐</em>的研究影像</h2>
+        <p class="labnav-lead">由编辑部与机构内容官共同挑选，覆盖实验过程、方法拆解与联合企划，均为官方授权发布。</p>
+      </div>
+
+      <div class="labnav-focus-grid">
+        <article class="labnav-vcard labnav-vcard--hero" data-labnav-card>
+          <div class="labnav-vcover">
+            <span class="labnav-vcover-tag">焦点 · 官方发布</span>
+            <svg viewBox="0 0 640 400" role="img" aria-label="超净实验室中科研人员进行样品制备的纪实影像封面">
+              <defs>
+                <linearGradient id="labnavF1a" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0c2b3f"/><stop offset="1" stop-color="#134f5a"/>
+                </linearGradient>
+                <linearGradient id="labnavF1b" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#8fe8d8" stop-opacity=".55"/><stop offset="1" stop-color="#8fe8d8" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <rect width="640" height="400" fill="url(#labnavF1a)"/>
+              <rect x="0" y="300" width="640" height="100" fill="#071f2e"/>
+              <!-- clean bench -->
+              <rect x="90" y="150" width="460" height="150" rx="6" fill="#0e3547" stroke="#2b7d90" stroke-width="2"/>
+              <rect x="110" y="172" width="200" height="92" rx="4" fill="url(#labnavF1b)"/>
+              <rect x="330" y="172" width="200" height="92" rx="4" fill="#0a2a3b"/>
+              <g stroke="#3fbfae" stroke-width="2" stroke-linecap="round" opacity=".8">
+                <path d="M352 196 h60"/><path d="M352 214 h110"/><path d="M352 232 h80"/>
+              </g>
+              <!-- glassware -->
+              <g>
+                <path d="M150 296 v-52 h28 v52 z" fill="#7fd8cc" opacity=".55"/>
+                <path d="M142 296 h44" stroke="#9fe9dd" stroke-width="3"/>
+                <path d="M214 296 v-38 h22 v38 z" fill="#e9c46a" opacity=".65"/>
+                <path d="M208 296 h34" stroke="#f0d38c" stroke-width="3"/>
+                <ellipse cx="225" cy="252" rx="11" ry="4" fill="#f7e3ab" opacity=".8"/>
+              </g>
+              <!-- researcher -->
+              <g>
+                <circle cx="470" cy="130" r="24" fill="#0a2a3b" stroke="#3fbfae" stroke-width="2"/>
+                <rect x="452" y="122" width="36" height="13" rx="6" fill="#123f52" stroke="#3fbfae" stroke-width="1.5"/>
+                <path d="M436 172 q34 -42 68 0 v118 h-68 z" fill="#0d3d50" stroke="#2b7d90" stroke-width="2"/>
+                <path d="M462 210 h20" stroke="#8fe8d8" stroke-width="3" stroke-linecap="round"/>
+              </g>
+              <!-- data particles -->
+              <g fill="#8fe8d8" opacity=".55">
+                <circle cx="120" cy="80" r="2.5"/><circle cx="210" cy="56" r="2"/><circle cx="520" cy="70" r="2.5"/>
+                <circle cx="580" cy="130" r="2"/><circle cx="80" cy="140" r="1.8"/>
+              </g>
+              <text x="28" y="366" fill="#8fe8d8" font-size="13" font-family="monospace" letter-spacing="2">SAMPLE PREP · ISO 5</text>
+            </svg>
+            <span class="labnav-vcover-dur">18:42</span>
+            <button class="labnav-vcover-play" data-labnav-video="超净实验室样品制备全流程" aria-label="播放 超净实验室样品制备全流程">
+              <svg viewBox="0 0 24 24" fill="#04211d"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
+          <div class="labnav-vbody">
+            <div>
+              <span class="labnav-tag">实验过程记录</span>
+              <span class="labnav-tag">官方发布</span>
+            </div>
+            <h3 class="labnav-vtitle">超净实验室样品制备全流程：从称量到封装的可复现记录</h3>
+            <p class="labnav-vsum">跟随材料研究所低温实验组，完整记录一次高纯样品制备的 18 分钟操作流程，包含环境参数、器械校准与多次失败重试的真实片段，适合作为实验室新人培训的参考影像。</p>
+            <div class="labnav-vmeta">
+              <span class="labnav-vavatar" style="background:#1a7f72">材</span>
+              <span class="labnav-vmeta-author">材料研究所低温实验组</span>
+              <span class="labnav-vmeta-dot"></span>
+              <span>11月18日</span>
+              <span class="labnav-vmeta-dot"></span>
+              <span>1,284 次浏览</span>
+              <span class="labnav-vactions">
+                <button class="labnav-icon-btn" data-labnav-like aria-label="点赞">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.7-9.5-9A5.2 5.2 0 0 1 12 6a5.2 5.2 0 0 1 9.5 6c-2 4.3-9.5 9-9.5 9z"/></svg>
+                  <span data-labnav-like-num>326</span>
+                </button>
+                <button class="labnav-icon-btn" data-labnav-save aria-label="收藏">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>
+                </button>
+                <button class="labnav-icon-btn" data-labnav-copy aria-label="复制链接">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg>
+                </button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="labnav-vcard" data-labnav-card>
+          <div class="labnav-vcover">
+            <span class="labnav-vcover-tag">方法拆解</span>
+            <svg viewBox="0 0 480 270" role="img" aria-label="光谱分析仪器面板与数据曲线的实验方法拆解封面">
+              <rect width="480" height="270" fill="#0d2a3d"/>
+              <rect x="30" y="34" width="420" height="150" rx="8" fill="#0a2132" stroke="#2b7d90" stroke-width="2"/>
+              <polyline points="56,150 110,120 160,138 214,78 268,104 322,60 380,92 424,70" fill="none" stroke="#2fe0c8" stroke-width="3" stroke-linecap="round"/>
+              <g stroke="#1b4d60" stroke-width="1">
+                <path d="M56 60 H424"/><path d="M56 96 H424"/><path d="M56 132 H424"/>
+              </g>
+              <circle cx="424" cy="70" r="4.5" fill="#f2a63b"/>
+              <rect x="30" y="196" width="200" height="42" rx="6" fill="#123f52"/>
+              <text x="48" y="223" fill="#8fe8d8" font-size="13" font-family="monospace">SPECTRUM · 532nm</text>
+              <rect x="250" y="196" width="200" height="42" rx="6" fill="#123f52"/>
+              <text x="268" y="223" fill="#8fe8d8" font-size="13" font-family="monospace">SIGNAL OK</text>
+            </svg>
+            <span class="labnav-vcover-dur">09:15</span>
+          </div>
+          <div class="labnav-vbody">
+            <div><span class="labnav-tag">实用技巧</span></div>
+            <h3 class="labnav-vtitle">光谱数据读不准？三个校准步骤与常见误差来源</h3>
+            <p class="labnav-vsum">把仪器校准拆成可执行的三步，并逐条解释基线漂移、样品污染与积分时间设置带来的误差，附实验室对照表。</p>
+            <div class="labnav-vmeta">
+              <span class="labnav-vavatar" style="background:#2b6f9d">光</span>
+              <span class="labnav-vmeta-author">光学测量研究所</span>
+              <span class="labnav-vmeta-dot"></span>
+              <span>1,046</span>
+              <span class="labnav-vactions">
+                <button class="labnav-icon-btn" data-labnav-like aria-label="点赞">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.7-9.5-9A5.2 5.2 0 0 1 12 6a5.2 5.2 0 0 1 9.5 6c-2 4.3-9.5 9-9.5 9z"/></svg>
+                  <span data-labnav-like-num>212</span>
+                </button>
+                <button class="labnav-icon-btn" data-labnav-save aria-label="收藏">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>
+                </button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="labnav-vcard" data-labnav-card>
+          <div class="labnav-vcover">
+            <span class="labnav-vcover-tag">人物访谈</span>
+            <svg viewBox="0 0 480 270" role="img" aria-label="研究员在书架前接受访谈的人物肖像封面">
+              <rect width="480" height="270" fill="#10283a"/>
+              <rect x="0" y="200" width="480" height="70" fill="#081b27"/>
+              <g stroke="#1f4d63" stroke-width="2">
+                <path d="M40 40 V200"/><path d="M90 40 V200"/><path d="M390 40 V200"/><path d="M440 40 V200"/>
+              </g>
+              <g fill="#14425a">
+                <rect x="46" y="56" width="38" height="12"/><rect x="46" y="76" width="38" height="12"/>
+                <rect x="46" y="96" width="38" height="12"/><rect x="46" y="116" width="38" height="12"/>
+                <rect x="396" y="56" width="38" height="12"/><rect x="396" y="76" width="38" height="12"/>
+                <rect x="396" y="96" width="38" height="12"/><rect x="396" y="116" width="38" height="12"/>
+              </g>
+              <circle cx="240" cy="106" r="40" fill="#134a5e" stroke="#2fe0c8" stroke-width="2.5"/>
+              <circle cx="240" cy="96" r="17" fill="#0a2233"/>
+              <path d="M212 168 q28 -38 56 0 v34 h-56 z" fill="#123f52" stroke="#2b7d90" stroke-width="2"/>
+              <rect x="196" y="188" width="88" height="20" rx="5" fill="#0b2c3f" stroke="#2fe0c8" stroke-width="1.5"/>
+              <text x="26" y="248" fill="#8fe8d8" font-size="12" font-family="monospace" letter-spacing="2">INTERVIEW · NO.57</text>
+            </svg>
+            <span class="labnav-vcover-dur">24:08</span>
+          </div>
+          <div class="labnav-vbody">
+            <div><span class="labnav-tag">人物访谈</span></div>
+            <h3 class="labnav-vtitle">三十年只做一件事：把材料疲劳测试做扎实</h3>
+            <p class="labnav-vsum">访材料研究所陈立衡研究员，谈长期跟踪实验的价值、年轻研究者的成长路径，以及科研影像记录对团队传承的作用。</p>
+            <div class="labnav-vmeta">
+              <span class="labnav-vavatar" style="background:#8a5a2b">陈</span>
+              <span class="labnav-vmeta-author">陈立衡 · 研究员</span>
+              <span class="labnav-vmeta-dot"></span>
+              <span>886</span>
+              <span class="labnav-vactions">
+                <button class="labnav-icon-btn" data-labnav-like aria-label="点赞">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.7-9.5-9A5.2 5.2 0 0 1 12 6a5.2 5.2 0 0 1 9.5 6c-2 4.3-9.5 9-9.5 9z"/></svg>
+                  <span data-labnav-like-num>174</span>
+                </button>
+                <button class="labnav-icon-btn" data-labnav-save aria-label="收藏">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>
+                </button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="labnav-vcard" data-labnav-card>
+          <div class="labnav-vcover">
+            <span class="labnav-vcover-tag">城市科研地图</span>
+            <svg viewBox="0 0 480 270" role="img" aria-label="城市天际线与科研院所分布节点叠加的地图封面">
+              <rect width="480" height="270" fill="#0e2d44"/>
+              <g fill="#123f57">
+                <rect x="30" y="150" width="46" height="90"/><rect x="86" y="118" width="40" height="122"/>
+                <rect x="136" y="166" width="52" height="74"/><rect x="198" y="100" width="44" height="140"/>
+                <rect x="252" y="140" width="58" height="100"/><rect x="320" y="126" width="42" height="114"/>
+                <rect x="372" y="160" width="78" height="80"/>
+              </g>
+              <g stroke="#2fe0c8" stroke-width="1.6" opacity=".7">
+                <path d="M60 130 Q140 80 210 108 T420 96" fill="none" stroke-dasharray="5 5"/>
+                <path d="M60 196 Q160 160 250 178 T420 150" fill="none" stroke-dasharray="5 5"/>
+              </g>
+              <g fill="#f2a63b">
+                <circle cx="60" cy="130" r="6"/><circle cx="210" cy="108" r="6"/><circle cx="420" cy="96" r="6"/>
+              </g>
+              <g fill="#2fe0c8">
+                <circle cx="160" cy="168" r="5"/><circle cx="300" cy="152" r="5"/>
+              </g>
+              <text x="28" y="46" fill="#8fe8d8" font-size="13" font-family="monospace" letter-spacing="2">CITY · LAB MAP</text>
+            </svg>
+            <span class="labnav-vcover-dur">12:33</span>
+          </div>
+          <div class="labnav-vbody">
+            <div><span class="labnav-tag">城市探索</span></div>
+            <h3 class="labnav-vtitle">一座城市的科研地图：藏在街区里的七间实验室</h3>
+            <p class="labnav-vsum">用一天时间走访七个开放日实验室，从材料、光学到生态监测，看城市如何把研究机构纳入日常动线。</p>
+            <div class="labnav-vmeta">
+              <span class="labnav-vavatar" style="background:#3b7a5a">城</span>
+              <span class="labnav-vmeta-author">城市科研观察</span>
+              <span class="labnav-vmeta-dot"></span>
+              <span>742</span>
+              <span class="labnav-vactions">
+                <button class="labnav-icon-btn" data-labnav-like aria-label="点赞">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.7-9.5-9A5.2 5.2 0 0 1 12 6a5.2 5.2 0 0 1 9.5 6c-2 4.3-9.5 9-9.5 9z"/></svg>
+                  <span data-labnav-like-num>128</span>
+                </button>
+                <button class="labnav-icon-btn" data-labnav-save aria-label="收藏">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>
+                </button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="labnav-vcard" data-labnav-card>
+          <div class="labnav-vcover">
+            <span class="labnav-vcover-tag">联合企划</span>
+            <svg viewBox="0 0 480 270" role="img" aria-label="多机构联合研究的数据网络连接示意图封面">
+              <rect width="480" height="270" fill="#0a2436"/>
+              <g stroke="#1f6076" stroke-width="1.6">
+                <path d="M240 135 L110 70"/><path d="M240 135 L372 68"/><path d="M240 135 L96 206"/><path d="M240 135 L386 202"/>
+                <path d="M240 135 L240 44"/><path d="M240 135 L240 230"/>
+              </g>
+              <g fill="#0e3549" stroke="#2fe0c8" stroke-width="2">
+                <circle cx="240" cy="135" r="30"/>
+                <circle cx="110" cy="70" r="17"/><circle cx="372" cy="68" r="17"/>
+                <circle cx="96" cy="206" r="17"/><circle cx="386" cy="202" r="17"/>
+                <circle cx="240" cy="44" r="14"/><circle cx="240" cy="230" r="14"/>
+              </g>
+              <circle cx="240" cy="135" r="11" fill="#2fe0c8"/>
+              <g fill="#f2a63b">
+                <circle cx="110" cy="70" r="5"/><circle cx="96" cy="206" r="5"/>
+              </g>
+              <g fill="#2fe0c8" opacity=".85">
+                <circle cx="372" cy="68" r="5"/><circle cx="386" cy="202" r="5"/>
+              </g>
+              <text x="26" y="250" fill="#8fe8d8" font-size="12" font-family="monospace" letter-spacing="2">JOINT · RESEARCH · NET</text>
+            </svg>
+            <span class="labnav-vcover-dur">21:07</span>
+          </div>
+          <div class="labnav-vbody">
+            <div><span class="labnav-tag">联合企划</span></div>
+            <h3 class="labnav-vtitle">跨机构联合研究如何协同：三条数据链路的真实协作记录</h3>
+            <p class="labnav-vsum">跟踪三家研究单位共同推进的一个联合课题，记录样本互寄、数据共享与例会讨论，呈现科研协作的实际节奏。</p>
+            <div class="labnav-vmeta">
+              <span class="labnav-vavatar" style="background:#4a5f9d">联</span>
+              <span class="labnav-vmeta-author">联合课题内容组</span>
+              <span class="labnav-vmeta-dot"></span>
+              <span>613</span>
+              <span class="labnav-vactions">
+                <button class="labnav-icon-btn" data-labnav-like aria-label="点赞">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.7-9.5-9A5.2 5.2 0 0 1 12 6a5.2 5.2 0 0 1 9.5 6c-2 4.3-9.5 9-9.5 9z"/></svg>
+                  <span data-labnav-like-num>97</span>
+                </button>
+                <button class="labnav-icon-btn" data-labnav-save aria-label="收藏">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>
+                </button>
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOPICS ============ -->
+  <section class="labnav-topics labnav-section" id="labnav-topics" aria-labelledby="labnavTopicsTitle">
+    <div class="labnav-wrap">
+      <div class="labnav-section-head">
+        <span class="labnav-eyebrow">专题企划</span>
+        <h2 class="labnav-h2" id="labnavTopicsTitle">正在推进的<em>四个内容企划</em></h2>
+        <p class="labnav-lead">以专题为单位组织影像，把分散的研究片段连成可阅读的完整叙事，每期均标注更新状态与参与机构。</p>
+      </div>
+      <div class="labnav-topic-grid">
+        <article class="labnav-topic-card">
+          <div class="labnav-topic-idx">TOPIC 01</div>
+          <h3 class="labnav-topic-title">低温世界的一年：实验记录合辑</h3>
+          <p class="labnav-topic-desc">覆盖 14 家低温实验室的年度影像，聚焦样品保存、设备维护与极端条件下的操作细节。</p>
+          <span class="labnav-topic-status"><i></i>持续更新 · 已上线 26 条</span>
+        </article>
+        <article class="labnav-topic-card">
+          <div class="labnav-topic-idx">TOPIC 02</div>
+          <h3 class="labnav-topic-title">方法公开课：把实验步骤讲透</h3>
+          <p class="labnav-topic-desc">每月一期方法拆解，邀请一线研究员示范标准操作，并说明失败案例与修正思路。</p>
+          <span class="labnav-topic-status"><i></i>连载中 · 第 18 期</span>
+        </article>
+        <article class="labnav-topic-card">
+          <div class="labnav-topic-idx">TOPIC 03</div>
+          <h3 class="labnav-topic-title">城市里的研究所：开放日影像</h3>
+          <p class="labnav-topic-desc">记录公众开放日中的实验室参观、讲解与互动，呈现研究机构与城市生活的真实连接。</p>
+          <span class="labnav-topic-status"><i></i>报名开放 · 12 城联动</span>
+        </article>
+        <article class="labnav-topic-card">
+          <div class="labnav-topic-idx">TOPIC 04</div>
+          <h3 class="labnav-topic-title">十年之后：长期跟踪研究档案</h3>
+          <p class="labnav-topic-desc">把跨越十年的跟踪实验整理为可对比的影像序列，展示时间在数据与设备上的痕迹。</p>
+          <span class="labnav-topic-status"><i></i>资料整理中 · 进度 68%</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CREATORS ============ -->
+  <section class="labnav-section" id="labnav-creators" aria-labelledby="labnavCreatorsTitle">
+    <div class="labnav-wrap">
+      <div class="labnav-section-head">
+        <span class="labnav-eyebrow">创作者矩阵</span>
+        <h2 class="labnav-h2" id="labnavCreatorsTitle">支撑内容生态的<em>机构与创作者</em></h2>
+        <p class="labnav-lead">既有长期驻场的机构内容官，也有擅长转译的理解型创作者，共同构成研究所入口导航的供给结构。</p>
+      </div>
+      <div class="labnav-creator-grid">
+        <article class="labnav-creator-card">
+          <div class="labnav-creator-avatar" style="background:linear-gradient(140deg,#1a7f72,#0e4a52)">材</div>
+          <div class="labnav-creator-info">
+            <h3 class="labnav-creator-name">材料研究所低温实验组 <span class="labnav-creator-verify">官方认证</span></h3>
+            <div class="labnav-creator-field">实验过程记录 · 材料科学</div>
+            <p class="labnav-creator-bio">长期开放低温实验舱的日常记录，更新稳定，工序说明完整，适合作为新人培训素材。</p>
+            <div class="labnav-creator-stats"><span>作品 <b>168</b></span><span>关注 <b>2.4万</b></span></div>
+          </div>
+        </article>
+        <article class="labnav-creator-card">
+          <div class="labnav-creator-avatar" style="background:linear-gradient(140deg,#2b6f9d,#173d63)">光</div>
+          <div class="labnav-creator-info">
+            <h3 class="labnav-creator-name">光学测量研究所 <span class="labnav-creator-verify">官方认证</span></h3>
+            <div class="labnav-creator-field">方法拆解 · 精密测量</div>
+            <p class="labnav-creator-bio">以仪器校准与误差分析见长，内容偏技术，但讲解清晰，被多家机构用于内部培训。</p>
+            <div class="labnav-creator-stats"><span>作品 <b>124</b></span><span>关注 <b>1.9万</b></span></div>
+          </div>
+        </article>
+        <article class="labnav-creator-card">
+          <div class="labnav-creator-avatar" style="background:linear-gradient(140deg,#8a5a2b,#5d3a18)">陈</div>
+          <div class="labnav-creator-info">
+            <h3 class="labnav-creator-name">陈立衡 <span class="labnav-creator-verify">研究员</span></h3>
+            <div class="labnav-creator-field">人物访谈 · 长期实验</div>
+            <p class="labnav-creator-bio">三十年从事材料疲劳研究，访谈内容克制、务实，强调过程记录与团队传承。</p>
+            <div class="labnav-creator-stats"><span>作品 <b>42</b></span><span>关注 <b>1.1万</b></span></div>
+          </div>
+        </article>
+        <article class="labnav-creator-card">
+          <div class="labnav-creator-avatar" style="background:linear-gradient(140deg,#3b7a5a,#1f4d3a)">城</div>
+          <div class="labnav-creator-info">
+            <h3 class="labnav-creator-name">城市科研观察 <span class="labnav-creator-verify">共创伙伴</span></h3>
+            <div class="labnav-creator-field">城市探索 · 机构走访</div>
+            <p class="labnav-creator-bio">专注城市中的研究机构走访，擅长把机构位置、开放信息与影像整合成可用的导航内容。</p>
+            <div class="labnav-creator-stats"><span>作品 <b>96</b></span><span>关注 <b>1.6万</b></span></div>
+          </div>
+        </article>
+        <article class="labnav-creator-card">
+          <div class="labnav-creator-avatar" style="background:linear-gradient(140deg,#4a5f9d,#26356b)">联</div>
+          <div class="labnav-creator-info">
+            <h3 class="labnav-creator-name">联合课题内容组 <span class="labnav-creator-verify">官方认证</span></h3>
+            <div class="labnav-creator-field">联合企划 · 跨机构协作</div>
+            <p class="labnav-creator-bio">由三家研究单位的传播人员组成，负责跨机构项目的影像统筹与协同记录。</p>
+            <div class="labnav-creator-stats"><span>作品 <b>57</b></span><span>关注 <b>9,200</b></span></div>
+          </div>
+        </article>
+        <article class="labnav-creator-card">
+          <div class="labnav-creator-avatar" style="background:linear-gradient(140deg,#a3612f,#6d3a14)">科</div>
+          <div class="labnav-creator-info">
+            <h3 class="labnav-creator-name">科学转译小组 <span class="labnav-creator-verify">理解型创作者</span></h3>
+            <div class="labnav-creator-field">知识科普 · 二次创作</div>
+            <p class="labnav-creator-bio">基于公开素材做解释性内容，严格标注原始记录与解读边界，是最受欢迎的入门入口。</p>
+            <div class="labnav-creator-stats"><span>作品 <b>203</b></span><span>关注 <b>3.2万</b></span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="labnav-gallery labnav-section" aria-labelledby="labnavWallTitle">
+    <div class="labnav-wrap">
+      <div class="labnav-section-head">
+        <span class="labnav-eyebrow">影像墙</span>
+        <h2 class="labnav-h2" id="labnavWallTitle">来自研究所的<em>片段与现场</em></h2>
+        <p class="labnav-lead">按时间流整理的公开影像片段，每张封面均对应一条可追溯的官方条目，点击可查看条目说明。</p>
+      </div>
+      <div class="labnav-wall">
+        <a class="labnav-wall-item labnav-wall-item--lg" href="#labnav-focus" data-labnav-wall>
+          <svg viewBox="0 0 640 420" role="img" aria-label="夜间实验楼外景与亮灯窗口的影像片段">
+            <rect width="640" height="420" fill="#081e2d"/>
+            <rect x="0" y="300" width="640" height="120" fill="#061520"/>
+            <rect x="60" y="90" width="150" height="210" fill="#0e3247" stroke="#1f6076" stroke-width="2"/>
+            <rect x="240" y="140" width="120" height="160" fill="#0c2a3d" stroke="#1f6076" stroke-width="2"/>
+            <rect x="390" y="60" width="190" height="240" fill="#10394f" stroke="#1f6076" stroke-width="2"/>
+            <g fill="#f2c66b">
+              <rect x="80" y="112" width="22" height="18"/><rect x="120" y="112" width="22" height="18"/>
+              <rect x="160" y="150" width="22" height="18"/><rect x="80" y="190" width="22" height="18"/>
+              <rect x="410" y="90" width="26" height="20"/><rect x="458" y="90" width="26" height="20"/>
+              <rect x="506" y="140" width="26" height="20"/><rect x="458" y="190" width="26" height="20"/>
+              <rect x="260" y="170" width="20" height="16"/>
+            </g>
+            <g fill="#2fe0c8" opacity=".8">
+              <rect x="120" y="150" width="22" height="18"/><rect x="410" y="140" width="26" height="20"/>
+              <rect x="506" y="90" width="26" height="20"/>
+            </g>
+            <circle cx="120" cy="52" r="3" fill="#8fe8d8"/>
+            <circle cx="320" cy="36" r="2.4" fill="#8fe8d8"/>
+            <circle cx="540" cy="42" r="2.8" fill="#8fe8d8"/>
+            <text x="24" y="392" fill="#7fd8cc" font-size="13" font-family="monospace" letter-spacing="2">NIGHT · LAB · 21:40</text>
+          </svg>
+          <span class="labnav-wall-cap">夜间实验楼：仍然亮着灯的四层<small>材料研究所 · 11月17日发布</small></span>
+        </a>
+
+        <a class="labnav-wall-item labnav-wall-item--md" href="#labnav-focus" data-labnav-wall>
+          <svg viewBox="0 0 480 300" role="img" aria-label="显微镜下晶体结构的特写影像片段">
+            <rect width="480" height="300" fill="#0a2c3e"/>
+            <circle cx="240" cy="150" r="112" fill="none" stroke="#2fe0c8" stroke-width="2" opacity=".6"/>
+            <circle cx="240" cy="150" r="70" fill="none" stroke="#2fe0c8" stroke-width="1.5" opacity=".45"/>
+            <g stroke="#8fe8d8" stroke-width="2" opacity=".9">
+              <path d="M150 150 L330 150"/><path d="M190 104 L290 196"/><path d="M290 104 L190 196"/>
+              <path d="M240 82 L240 218"/>
+            </g>
+            <g fill="#f2a63b">
+              <circle cx="240" cy="150" r="7"/><circle cx="150" cy="150" r="4.5"/>
+              <circle cx="330" cy="150" r="4.5"/><circle cx="190" cy="104" r="4.5"/>
+              <circle cx="290" cy="196" r="4.5"/>
+            </g>
+            <g fill="#8fe8d8" opacity=".8">
+              <circle cx="290" cy="104" r="4"/><circle cx="190" cy="196" r="4"/>
+            </g>
+            <text x="22" y="274" fill="#7fd8cc" font-size="12" font-family="monospace" letter-spacing="2">CRYSTAL · x400</text>
+          </svg>
+          <span class="labnav-wall-cap">晶体结构观测：一次成功的样本制备<small>光学测量研究所 · 11月16日</small></span>
+        </a>
+
+        <a class="labnav-wall-item labnav-wall-item--md" href="#labnav-focus" data-labnav-wall>
+          <svg viewBox="0 0 480 300" role="img" aria-label="实验记录本手写数据页的影像片段">
+            <rect width="480" height="300" fill="#123046"/>
+            <rect x="60" y="34" width="360" height="232" rx="6" fill="#e8eef2"/>
+            <g stroke="#a9bfcd" stroke-width="1.4">
+              <path d="M90 74 H390"/><path d="M90 106 H390"/><path d="M90 138 H390"/>
+              <path d="M90 170 H390"/><path d="M90 202 H390"/><path d="M90 234 H390"/>
+            </g>
+            <g stroke="#2b6f9d" stroke-width="3" stroke-linecap="round">
+              <path d="M104 74 q18 -10 34 0 t34 0"/>
+              <path d="M104 106 q22 8 40 0 t36 0"/>
+              <path d="M104 138 q26 -12 46 0"/>
+            </g>
+            <g fill="#c45a3f">
+              <circle cx="352" cy="138" r="5"/><circle cx="372" cy="170" r="5"/>
+            </g>
+            <g stroke="#8aa6b6" stroke-width="2" stroke-linecap="round">
+              <path d="M110 176 h120"/><path d="M110 196 h84"/><path d="M110 222 h150"/>
+            </g>
+            <text x="24" y="284" fill="#7fd8cc" font-size="12" font-family="monospace" letter-spacing="2">LOG BOOK · PAGE 214</text>
+          </svg>
+          <span class="labnav-wall-cap">实验记录本第 214 页：被反复修改的参数<small>联合课题内容组 · 11月15日</small></span>
+        </a>
+
+        <a class="labnav-wall-item labnav-wall-item--sm" href="#labnav-focus" data-labnav-wall>
+          <svg viewBox="0 0 300 300" role="img" aria-label="低温容器表面结霜特写的影像片段">
+            <rect width="300" height="300" fill="#0e3648"/>
+            <rect x="60" y="80" width="180" height="150" rx="14" fill="#164b5d" stroke="#7fd8cc" stroke-width="2"/>
+            <g fill="#d8f5f0" opacity=".8">
+              <circle cx="96" cy="120" r="4"/><circle cx="118" cy="146" r="3"/><circle cx="150" cy="112" r="5"/>
+              <circle cx="182" cy="152" r="3.5"/><circle cx="206" cy="118" r="4"/><circle cx="132" cy="192" r="3"/>
+              <circle cx="176" cy="196" r="4"/><circle cx="212" cy="184" r="2.6"/>
+            </g>
+            <path d="M150 80 V54" stroke="#7fd8cc" stroke-width="3"/>
+            <circle cx="150" cy="48" r="6" fill="#2fe0c8"/>
+            <text x="18" y="278" fill="#7fd8cc" font-size="12" font-family="monospace" letter-spacing="1">-196°C</text>
+          </svg>
+          <span class="labnav-wall-cap">低温容器结霜<small>低温实验组</small></span>
+        </a>
+
+        <a class="labnav-wall-item labnav-wall-item--sm" href="#labnav-focus" data-labnav-wall>
+          <svg viewBox="0 0 300 300" role="img" aria-label="样品编号标签排列的影像片段">
+            <rect width="300" height="300" fill="#0f2f43"/>
+            <g fill="#1b5871" stroke="#2fe0c8" stroke-width="1.6">
+              <rect x="40" y="60" width="90" height="52" rx="7"/>
+              <rect x="170" y="60" width="90" height="52" rx="7"/>
+              <rect x="40" y="132" width="90" height="52" rx="7"/>
+              <rect x="170" y="132" width="90" height="52" rx="7"/>
+              <rect x="105" y="204" width="90" height="52" rx="7"/>
+            </g>
+            <g fill="#8fe8d8" font-size="13" font-family="monospace">
+              <text x="56" y="92">A-017</text><text x="186" y="92">B-042</text>
+              <text x="56" y="164">C-103</text><text x="186" y="164">D-088</text>
+              <text x="121" y="236">E-215</text>
+            </g>
+          </svg>
+          <span class="labnav-wall-cap">样品编号墙<small>材料研究所</small></span>
+        </a>
+
+        <a class="labnav-wall-item labnav-wall-item--sm" href="#labnav-focus" data-labnav-wall>
+          <svg viewBox="0 0 300 300" role="img" aria-label="实验室走廊地面反光特写的影像片段">
+            <rect width="300" height="300" fill="#08202f"/>
+            <path d="M150 20 L40 280 H260 Z" fill="#0e3447"/>
+            <path d="M150 60 L90 280 H210 Z" fill="#14455a" opacity=".8"/>
+            <g stroke="#2fe0c8" stroke-width="1.6" opacity=".5">
+              <path d="M150 20 L40 280"/><path d="M150 20 L260 280"/>
+              <path d="M102 180 H198"/><path d="M86 232 H214"/>
+            </g>
+            <circle cx="150" cy="120" r="9" fill="#8fe8d8" opacity=".8"/>
+            <text x="18" y="290" fill="#7fd8cc" font-size="11" font-family="monospace">CORRIDOR</text>
+          </svg>
+          <span class="labnav-wall-cap">走廊尽头的灯<small>城市科研观察</small></span>
+        </a>
+
+        <a class="labnav-wall-item labnav-wall-item--sm" href="#labnav-focus" data-labnav-wall>
+          <svg viewBox="0 0 300 300" role="img" aria-label="数据屏上实时曲线滚动的影像片段">
+            <rect width="300" height="300" fill="#0b2938"/>
+            <rect x="34" y="50" width="232" height="164" rx="8" fill="#061a26" stroke="#2b7d90" stroke-width="2"/>
+            <polyline points="52,180 88,150 116,160 150,108 184,128 216,88 248,104" fill="none" stroke="#2fe0c8" stroke-width="3" stroke-linecap="round"/>
+            <g stroke="#17475b" stroke-width="1">
+              <path d="M52 90 H248"/><path d="M52 130 H248"/><path d="M52 170 H248"/>
+            </g>
+            <text x="34" y="248" fill="#8fe8d8" font-size="12" font-family="monospace">LIVE · DATA</text>
+          </svg>
+          <span class="labnav-wall-cap">实时数据屏<small>联合课题内容组</small></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="labnav-section" aria-labelledby="labnavReviewTitle">
+    <div class="labnav-wrap">
+      <div class="labnav-section-head">
+        <span class="labnav-eyebrow">用户评价</span>
+        <h2 class="labnav-h2" id="labnavReviewTitle">来自机构与<em>普通用户的反馈</em></h2>
+        <p class="labnav-lead">我们不筛选只保留好评，以下内容按使用场景分类呈现，包含建议与批评。</p>
+      </div>
+      <div class="labnav-review-grid">
+        <article class="labnav-review-card">
+          <div class="labnav-review-stars">★★★★★</div>
+          <p class="labnav-review-text">我们实验室把培训素材迁移到这里之后，新人的上手时间明显缩短。影像条目的元信息很完整，找起历史记录来不用再翻聊天记录。</p>
+          <div class="labnav-review-foot">
+            <span class="labnav-review-av" style="background:#1a7f72">周</span>
+            <div><div class="labnav-review-name">周工</div><div class="labnav-review-role">材料研究所 · 实验主管</div></div>
+          </div>
+        </article>
+        <article class="labnav-review-card">
+          <div class="labnav-review-stars">★★★★☆</div>
+          <p class="labnav-review-text">入口结构比想象中清楚，按机构和学科两条线都能找到。唯一希望是检索结果能支持按影像时长筛选，有时只想看十分钟以内的片段。</p>
+          <div class="labnav-review-foot">
+            <span class="labnav-review-av" style="background:#2b6f9d">林</span>
+            <div><div class="labnav-review-name">林同学</div><div class="labnav-review-role">高校研究生 · 光学方向</div></div>
+          </div>
+        </article>
+        <article class="labnav-review-card">
+          <div class="labnav-review-stars">★★★★★</div>
+          <p class="labnav-review-text">作为科普作者，最看重素材能否被追溯。这里的授权说明与引用规范写得很细，二次创作时心里有底，也减少了和机构的沟通成本。</p>
+          <div class="labnav-review-foot">
+            <span class="labnav-review-av" style="background:#a3612f">许</span>
+            <div><div class="labnav-review-name">许一鸣</div><div class="labnav-review-role">科学转译小组 · 创作者</div></div>
+          </div>
+        </article>
+        <article class="labnav-review-card">
+          <div class="labnav-review-stars">★★★★☆</div>
+          <p class="labnav-review-text">开放日的城市企划很有价值，我按导航带孩子去了两家研究所，讲解比预期细致。如果每期能提前公布参观批次会更方便安排。</p>
+          <div class="labnav-review-foot">
+            <span class="labnav-review-av" style="background:#3b7a5a">赵</span>
+            <div><div class="labnav-review-name">赵女士</div><div class="labnav-review-role">普通用户 · 亲子参观</div></div>
+          </div>
+        </article>
+        <article class="labnav-review-card">
+          <div class="labnav-review-stars">★★★★★</div>
+          <p class="labnav-review-text">联合课题的协作记录对我们这种跨单位团队很有参考意义，尤其是数据共享那几段，直接拿来做了内部流程讨论的素材。</p>
+          <div class="labnav-review-foot">
+            <span class="labnav-review-av" style="background:#4a5f9d">何</span>
+            <div><div class="labnav-review-name">何研究员</div><div class="labnav-review-role">联合课题组 · 协调人</div></div>
+          </div>
+        </article>
+        <article class="labnav-review-card">
+          <div class="labnav-review-stars">★★★☆☆</div>
+          <p class="labnav-review-text">内容质量整体不错，但部分条目的更新频率不稳定，标注了持续更新却隔很久才有新内容，希望状态提示更准确一点。</p>
+          <div class="labnav-review-foot">
+            <span class="labnav-review-av" style="background:#8a5a2b">吴</span>
+            <div><div class="labnav-review-name">吴同学</div><div class="labnav-review-role">长期关注用户</div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ UPDATES ============ -->
+  <section class="labnav-section labnav-section--tight" id="labnav-updates" aria-labelledby="labnavUpdatesTitle">
+    <div class="labnav-wrap">
+      <div class="labnav-section-head">
+        <span class="labnav-eyebrow">官方动态</span>
+        <h2 class="labnav-h2" id="labnavUpdatesTitle">近期的<em>更新与公告</em></h2>
+        <p class="labnav-lead">机构入驻、内容上新、共创活动与规则调整，均在此处按时间顺序公示。</p>
+      </div>
+      <div class="labnav-updates-list">
+        <div class="labnav-update-item">
+          <div class="labnav-update-date">11月18日<small>2026年</small></div>
+          <div>
+            <h3 class="labnav-update-title">《科研影像档案·第九辑》上线，新增 12 条研究所纪实影像</h3>
+            <p class="labnav-update-desc">本次更新覆盖低温实验、精密测量与生态监测三个方向，其中 7 条为首次公开，3 项联合实验直播回放入口同步开放，可在影像焦点区查看。</p>
+          </div>
+        </div>
+        <div class="labnav-update-item">
+          <div class="labnav-update-date">11月12日<small>2026年</small></div>
+          <div>
+            <h3 class="labnav-update-title">第三批机构内容官认证完成，新增 26 家研究机构</h3>
+            <p class="labnav-update-desc">通过资质核对与授权链路验证的机构将在本月内陆续开放影像入口，涵盖材料、光学、生态与数据科学等方向。</p>
+          </div>
+        </div>
+        <div class="labnav-update-item">
+          <div class="labnav-update-date">11月05日<small>2026年</small></div>
+          <div>
+            <h3 class="labnav-update-title">“方法公开课”第二季挑战活动开放报名</h3>
+            <p class="labnav-update-desc">面向研究者与科学传播者征集实验方法讲解影像，入围作品将获得专题推荐与制作支持，报名截止 12 月 10 日。</p>
+          </div>
+        </div>
+        <div class="labnav-update-item">
+          <div class="labnav-update-date">10月28日<small>2026年</small></div>
+          <div>
+            <h3 class="labnav-update-title">引用规范与授权说明更新，新增二次创作标注要求</h3>
+            <p class="labnav-update-desc">为区分原始记录与解释性内容，平台对二次创作条目的标注字段进行调整，投稿指南与常见问题已同步修订。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="labnav-section" id="labnav-faq" aria-labelledby="labnavFaqTitle">
+    <div class="labnav-wrap">
+      <div class="labnav-section-head" style="margin-left:auto;margin-right:auto;text-align:center;max-width:640px">
+        <span class="labnav-eyebrow" style="justify-content:center">帮助中心</span>
+        <h2 class="labnav-h2" id="labnavFaqTitle">关于<em>机构入驻与内容使用</em></h2>
+        <p class="labnav-lead">整理最常见的问题，若仍未解决，可通过页面底部的联系入口提交咨询。</p>
+      </div>
+      <div class="labnav-faq">
+        <details>
+          <summary>研究机构如何申请入驻并发布影像？</summary>
+          <div class="labnav-faq-answer">通过页面底部的“机构内容入驻”入口提交机构名称、研究方向、联系人信息与可核验的官方渠道说明。我们在收到申请后会在五个工作日内完成初审，并与机构指定的内容负责人确认授权链路与影像发布范围，通过后即可开通官方发布通道。</div>
+        </details>
+        <details>
+          <summary>平台对影像的清晰度和格式有要求吗？</summary>
+          <div class="labnav-faq-answer">建议提供 1080p 及以上的高清素材，画幅以 16:9 为主，帧率不低于 25fps。涉及文字说明、参数标注的画面，请在提交时附上原始文案，以便在条目说明中同步呈现，避免因画面压缩导致信息不清。</div>
+        </details>
+        <details>
+          <summary>未公开的科研内容可以上传吗？</summary>
+          <div class="labnav-faq-answer">可以，但需要明确标注可见范围与开放时间窗口。平台支持设置仅机构内部可见、定向共享与到期公开三种模式。涉及合作方权益的内容，请由机构内容负责人在提交时一并说明，我们会配合做访问控制。</div>
+        </details>
+        <details>
+          <summary>创作者能否使用平台素材做二次创作？</summary>
+          <div class="labnav-faq-answer">公开条目在遵守引用规范的前提下可用于二次创作，但须标注素材来源与原始机构，并明确区分原始记录与解释性内容。禁止移除来源标识或以“唯一来源”方式表述。如需商用或批量使用，请通过联系入口申请授权。</div>
+        </details>
+        <details>
+          <summary>如何参与专题企划与共创活动？</summary>
+          <div class="labnav-faq-answer">专题企划会在官方动态与专题区同步公布征集说明，包含主题、素材要求、时间节点与评审方式。创作者与机构均可在开放期内提交作品，入围内容将获得专题推荐位与制作支持，部分活动设有投票与挑战环节。</div>
+        </details>
+        <details>
+          <summary>发现条目信息有误或授权存疑怎么办？</summary>
+          <div class="labnav-faq-answer">可在对应条目下使用反馈入口提交说明，也可通过联系入口提交。我们会在收到反馈后启动复核，必要时暂时调整条目的可见状态，并在复核完成后同步处理结果。涉及版权的反馈会优先处理。</div>
+        </details>
+        <details>
+          <summary>平台是否提供下载与引用格式？</summary>
+          <div class="labnav-faq-answer">公开条目会提供标准引用格式建议，包含机构名称、条目标题、发布时间与访问说明。下载功能按机构授权策略开放，部分素材仅支持页面内引用。具体以条目页的授权标注为准。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="labnav-contact labnav-section" id="labnav-contact" aria-labelledby="labnavContactTitle">
+    <div class="labnav-wrap labnav-contact-inner">
+      <div>
+        <span class="labnav-eyebrow">联系与合作</span>
+        <h2 class="labnav-h2" id="labnavContactTitle">让你的研究所，被<em>正确地看见</em></h2>
+        <p class="labnav-lead">无论是机构内容入驻、联合企划、授权咨询还是问题反馈，都可以从这里开始。我们更愿意先了解你的研究内容，再讨论呈现方式。</p>
+        <div class="labnav-contact-actions">
+          <button class="labnav-btn labnav-btn--primary" data-labnav-submit>提交机构内容入驻</button>
+          <button class="labnav-btn labnav-btn--ghost" data-labnav-feedback>反馈与举报</button>
+          <button class="labnav-btn labnav-btn--ghost" data-labnav-share>分享入口</button>
+        </div>
+      </div>
+      <div class="labnav-contact-card">
+        <div class="labnav-contact-row">
+          <span class="labnav-contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></span>
+          <div><strong>机构合作邮箱</strong><span>partner@labportal-research.cn</span></div>
+        </div>
+        <div class="labnav-contact-row">
+          <span class="labnav-contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg></span>
+          <div><strong>内容咨询</strong><span>content@labportal-research.cn</span></div>
+        </div>
+        <div class="labnav-contact-row">
+          <span class="labnav-contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><strong>工作时间</strong><span>周一至周五 09:30 - 18:00</span></div>
+        </div>
+        <div class="labnav-contact-row">
+          <span class="labnav-contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.4-7-10a7 7 0 0 1 14 0c0 5.6-7 10-7 10z"/><circle cx="12" cy="11" r="2.6"/></svg></span>
+          <div><strong>办公地址</strong><span>科研影像内容中心 · 综合楼 6 层</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="labnav-footer">
+  <div class="labnav-wrap">
+    <div class="labnav-footer-top">
+      <div>
+        <div class="labnav-footer-brand">
+          <span class="labnav-brand-mark">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1ec8b4" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="9" r="4.2"/><path d="M12 13.4V21M8.4 21h7.2"/>
+            </svg>
+          </span>
+          <b>研究所入口导航</b>
+        </div>
+        <p class="labnav-footer-desc">面向科研机构与科学传播者的官方影像入口体系，持续提供原创、高清、可追溯的科研纪实内容，服务企业与公众的理解需求。</p>
+      </div>
+      <div>
+        <h4>浏览内容</h4>
+        <ul>
+          <li><a href="#labnav-focus">影像焦点</a></li>
+          <li><a href="#labnav-topics">专题企划</a></li>
+          <li><a href="#labnav-creators">创作者矩阵</a></li>
+          <li><a href="#labnav-updates">官方动态</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>机构与创作</h4>
+        <ul>
+          <li><a href="#labnav-contact">机构内容入驻</a></li>
+          <li><a href="#labnav-faq">投稿指南</a></li>
+          <li><a href="#labnav-faq">引用规范</a></li>
+          <li><a href="#labnav-contact">合作咨询</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>平台信息</h4>
+        <ul>
+          <li><a href="#labnav-faq">常见问题</a></li>
+          <li><a href="#labnav-updates">更新日志</a></li>
+          <li><a href="#labnav-contact">反馈与举报</a></li>
+          <li><a href="#labnav-top">回到首页</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="labnav-footer-bottom">
+      <span><b>研究所入口导航 官方网站</b> · 内容由入驻机构授权发布 · 版权所有 © 2026</span>
+      <span>持续运营中 · 品牌内容生态 · 备案信息：科研影像内容中心</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ TOAST / MODAL / TOP ============ -->
+<div class="labnav-toast" id="labnavToast" role="status" aria-live="polite"></div>
+
+<div class="labnav-modal-mask" id="labnavModalMask">
+  <div class="labnav-modal" role="dialog" aria-modal="true" aria-labelledby="labnavModalTitle">
+    <h3 id="labnavModalTitle">提交机构内容入驻</h3>
+    <p id="labnavModalDesc">留下机构名称与联系方式，内容运营团队会在五个工作日内与你联系。</p>
+    <form id="labnavModalForm">
+      <div class="labnav-modal-field">
+        <label for="labnavModalOrg">机构名称</label>
+        <input type="text" id="labnavModalOrg" placeholder="例如：某材料研究所" required>
+      </div>
+      <div class="labnav-modal-field">
+        <label for="labnavModalContact">联系方式</label>
+        <input type="text" id="labnavModalContact" placeholder="邮箱或电话" required>
+      </div>
+      <div class="labnav-modal-field">
+        <label for="labnavModalNote">补充说明</label>
+        <textarea id="labnavModalNote" placeholder="研究方向、希望发布的影像类型、授权情况等"></textarea>
+      </div>
+      <div class="labnav-modal-actions">
+        <button type="button" class="labnav-modal-btn labnav-modal-btn--cancel" data-labnav-modal-close>取消</button>
+        <button type="submit" class="labnav-modal-btn labnav-modal-btn--ok">提交</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<button class="labnav-top-btn" id="labnavTopBtn" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m5 14 7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  var toast = document.getElementById('labnavToast');
+  var toastTimer = null;
+  function showToast(msg){
+    if(!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('is-show'); }, 2400);
+  }
+
+  /* ---- mobile nav ---- */
+  var burger = document.getElementById('labnavBurger');
+  var panel = document.getElementById('labnavMobilePanel');
+  if(burger && panel){
+    burger.addEventListener('click', function(){
+      var open = panel.classList.toggle('is-open');
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        panel.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  /* ---- search feedback ---- */
+  var searchForm = document.getElementById('labnavSearchForm');
+  var searchInput = document.getElementById('labnavSearchInput');
+  var feedback = document.createElement('div');
+  feedback.className = 'labnav-search-feedback';
+  if(searchForm){ searchForm.parentNode.appendChild(feedback); }
+  function doSearch(value){
+    var q = (value || '').trim();
+    if(!q){ showToast('请输入研究所名称、学科方向或创作者'); return; }
+    var total = document.querySelectorAll('[data-labnav-card], .labnav-topic-card, .labnav-creator-card, .labnav-wall-item').length;
+    feedback.textContent = '已按“' + q + '”检索到 ' + total + ' 条相关内容，可在影像焦点与创作者区查看';
+    feedback.classList.add('is-show');
+    showToast('已按“' + q + '”完成站内检索');
+    var target = document.getElementById('labnav-focus');
+    if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+  }
+  if(searchForm){
+    searchForm.addEventListener('submit', function(e){ e.preventDefault(); doSearch(searchInput ? searchInput.value : ''); });
+  }
+  var mobileSearchBtn = document.querySelector('[data-labnav-mobile-search]');
+  var mobileSearchInput = document.getElementById('labnavMobileSearch');
+  if(mobileSearchBtn){
+    mobileSearchBtn.addEventListener('click', function(){ doSearch(mobileSearchInput ? mobileSearchInput.value : ''); });
+  }
+
+  /* ---- like ---- */
+  document.querySelectorAll('[data-labnav-like]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      var numEl = btn.querySelector('[data-labnav-like-num]');
+      var liked = btn.classList.toggle('is-liked');
+      if(numEl){
+        var n = parseInt(numEl.textContent.replace(/[^\d]/g,''),10) || 0;
+        n = liked ? n + 1 : Math.max(0, n - 1);
+        numEl.textContent = n;
+      }
+      showToast(liked ? '已点赞，感谢你的认可' : '已取消点赞');
+    });
+  });
+
+  /* ---- save ---- */
+  document.querySelectorAll('[data-labnav-save]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      var saved = btn.classList.toggle('is-saved');
+      var svg = btn.querySelector('svg');
+      if(svg){ svg.setAttribute('fill', saved ? 'currentColor' : 'none'); }
+      showToast(saved ? '已收藏到你的内容清单' : '已取消收藏');
+    });
+  });
+
+  /* ---- copy link ---- */
+  document.querySelectorAll('[data-labnav-copy]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      var text = '研究所入口导航 · 科研影像官方入口';
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ showToast('链接已复制，可分享给同事'); })
+        .catch(function(){ showToast('复制失败，请手动选择文本'); });
+      } else {
+        showToast('当前环境不支持自动复制，请手动选择');
+      }
+    });
+  });
+
+  /* ---- video play ---- */
+  document.querySelectorAll('[data-labnav-video]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      showToast('《' + btn.getAttribute('data-labnav-video') + '》条目说明已展开，完整记录请前往机构官方通道');
+    });
+  });
+
+  /* ---- share ---- */
+  document.querySelectorAll('[data-labnav-share]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var text = '研究所入口导航 · 科研影像官方入口';
+      if(navigator.share){
+        navigator.share({title:'研究所入口导航', text:text}).catch(function(){});
+      } else if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ showToast('分享文案已复制，可粘贴到微信或微博'); })
+        .catch(function(){ showToast('可通过微信、微博或 QQ 分享本页'); });
+      } else {
+        showToast('可通过微信、微博或 QQ 分享本页');
+      }
+    });
+  });
+
+  /* ---- modal ---- */
+  var mask = document.getElementById('labnavModalMask');
+  var modalTitle = document.getElementById('labnavModalTitle');
+  var modalDesc = document.getElementById('labnavModalDesc');
+  var modalForm = document.getElementById('labnavModalForm');
+  var modalMode = 'submit';
+  function openModal(mode){
+    modalMode = mode;
+    if(mode === 'feedback'){
+      modalTitle.textContent = '反馈与举报';
+      modalDesc.textContent = '请描述你发现的问题、条目名称与具体情况，我们会尽快复核并回复。';
+      document.getElementById('labnavModalOrg').placeholder = '相关条目或机构名称';
+      document.getElementById('labnavModalContact').placeholder = '你的联系方式（可选）';
+      document.getElementById('labnavModalNote').placeholder = '问题描述、截图说明或其他补充信息';
+    } else {
+      modalTitle.textContent = '提交机构内容入驻';
+      modalDesc.textContent = '留下机构名称与联系方式，内容运营团队会在五个工作日内与你联系。';
+      document.getElementById('labnavModalOrg').placeholder = '例如：某材料研究所';
+      document.getElementById('labnavModalContact').placeholder = '邮箱或电话';
+      document.getElementById('labnavModalNote').placeholder = '研究方向、希望发布的影像类型、授权情况等';
+    }
+    mask.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ document.getElementById('labnavModalOrg').focus(); }, 120);
+  }
+  function closeModal(){
+    mask.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('[data-labnav-submit]').forEach(function(b){
+    b.addEventListener('click', function(){ openModal('submit'); });
+  });
+  document.querySelectorAll('[data-labnav-feedback]').forEach(function(b){
+    b.addEventListener('click', function(){ openModal('feedback'); });
+  });
+  document.querySelectorAll('[data-labnav-modal-close]').forEach(function(b){
+    b.addEventListener('click', closeModal);
+  });
+  if(mask){
+    mask.addEventListener('click', function(e){ if(e.target === mask) closeModal(); });
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && mask && mask.classList.contains('is-open')) closeModal();
+  });
+  if(modalForm){
+    modalForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      closeModal();
+      showToast(modalMode === 'feedback' ? '反馈已提交，感谢你的帮助' : '入驻申请已提交，我们会尽快联系你');
+      modalForm.reset();
+    });
+  }
+
+  /* ---- wall click ---- */
+  document.querySelectorAll('[data-labnav-wall]').forEach(function(item){
+    item.addEventListener('click', function(){
+      showToast('已定位到对应影像条目，可在影像焦点区查看说明');
+    });
+  });
+
+  /* ---- back to top ---- */
+  var topBtn = document.getElementById('labnavTopBtn');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520){ topBtn.classList.add('is-show'); }
+    else { topBtn.classList.remove('is-show'); }
+  }, {passive:true});
+  if(topBtn){
+    topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  }
+
+  /* ---- count up ---- */
+  var counted = false;
+  var counters = document.querySelectorAll('[data-labnav-count]');
+  function runCount(){
+    if(counted) return;
+    counted = true;
+    counters.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-labnav-count'),10) || 0;
+      var suffix = el.querySelector('small') ? el.querySelector('small').outerHTML : '';
+      var start = 0, dur = 1200, t0 = null;
+      function step(ts){
+        if(!t0) t0 = ts;
+        var p = Math.min((ts - t0) / dur, 1);
+        var val = Math.floor(start + (target - start) * (1 - Math.pow(1 - p, 3)));
+        el.innerHTML = (target >= 1000 ? val.toLocaleString('en-US') : val) + suffix;
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting) runCount(); });
+    }, {threshold:.4});
+    var heroStats = document.querySelector('.labnav-hero-stats');
+    if(heroStats) io.observe(heroStats);
+  } else { runCount(); }
+})();
+</script>
+</body>
+                                                                                   </html>
